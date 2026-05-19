@@ -11,11 +11,9 @@
     font-style: normal;
 }
 
-html, body {
+body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
 }
@@ -69,34 +67,15 @@ html, body {
     margin-right: 64px;
 }
 
-.scroll-section {
+.welcome-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('paris-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
-    padding-top: 100px;
-    box-sizing: border-box;
-}
-
-.paris-bg-1 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris-bg.webp');
-}
-
-.paris-bg-2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris1.webp');
-}
-
-.paris-bg-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris2.webp');
-}
-
-.paris-bg-4 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris3.webp');
-}
-
-.paris-bg-5 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris4.webp');
+    display: flex;
+    align-items: center;
 }
 
 .content-section {
@@ -117,14 +96,11 @@ html, body {
     max-width: 800px;
 }
 
-.anim-text {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-    transition-delay: 0.4s;
-}
-
-.anim-text.visible {
-    opacity: 1;
-    transform: translateY(0);
+.second-bg-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('paris1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photopixl — Paris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Photopixl</a>
+        <div class="place-label">Place:</div>
+        <div class="nav-links">
+            <a href="index.html" class="city-link active">Paris</a>
+            <a href="tokio.html" class="city-link">Tokio</a>
+            <a href="moscow.html" class="city-link">Moscow</a>
+            <a href="madrid.html" class="city-link">Madrid</a>
+        </div>
+    </nav>
+
+    <section class="welcome-section">
+        <main class="content-section">
+            <h1>Paris</h1>
+            <p>Добро пожаловать в Париж — столицу Франции, город романтики, изысканной кухни и мировой моды. Здесь вас ждут Лувр, Эйфелева башня и уютные уличные кафе.</p>
+        </main>
+    </section>
+
+    <section class="second-bg-section"></section>
+
+    <script>
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.welcome-section, .second-bg-section');
+        let isScrolling = false;
+
+        window.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            
+            if (isScrolling) return;
+
+            if (Math.abs(e.deltaY) < 60) return;
+
+            isScrolling = true;
+
+            if (e.deltaY > 0) {
+                if (currentSection < sections.length - 1) currentSection++;
+            } else {
+                if (currentSection > 0) currentSection--;
+            }
+
+            sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }, { passive: false });
+    </script>
+
+</body>
+</html>

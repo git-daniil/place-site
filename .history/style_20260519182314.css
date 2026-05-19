@@ -69,7 +69,8 @@ html, body {
     margin-right: 64px;
 }
 
-.scroll-section {
+.welcome-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('paris-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -77,26 +78,6 @@ html, body {
     height: 100vh;
     padding-top: 100px;
     box-sizing: border-box;
-}
-
-.paris-bg-1 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris-bg.webp');
-}
-
-.paris-bg-2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris1.webp');
-}
-
-.paris-bg-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris2.webp');
-}
-
-.paris-bg-4 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris3.webp');
-}
-
-.paris-bg-5 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/photo/paris/paris4.webp');
 }
 
 .content-section {
@@ -115,6 +96,17 @@ html, body {
     color: #e6e6e6;
     line-height: 1.6;
     max-width: 800px;
+}
+
+.second-bg-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('paris1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 100px;
+    box-sizing: border-box;
 }
 
 .anim-text {
