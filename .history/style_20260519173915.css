@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: local('Gilroy-Regular'), url('fonts/Gilroy-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Seenonim';
+    src: local('Seenonim'), url('fonts/Seenonim.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background: none;
+    padding: 20px 40px;
+}
+
+.logo {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 36pt;
+    color: #000000;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.place-label {
+    font-family: 'Seenonim', sans-serif;
+    font-size: 20pt;
+    color: #000000;
+    margin-left: 269px;
+    line-height: 1;
+}
+
+.nav-links {
+    display: flex;
+    margin-left: 126px;
+}
+
+.city-link {
+    font-family: 'Seenonim', sans-serif;
+    font-size: 20pt;
+    color: #000000;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.city-link.active {
+    color: #8c8c8c;
+}
+
+.city-link:not(:last-child) {
+    margin-right: 64px;
+}
+
+.content-section {
+    padding: 60px 40px;
+}
+
+.content-section h1 {
+    font-size: 32pt;
+    margin-top: 0;
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+
+.content-section p {
+    font-size: 14pt;
+    color: #333333;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.content-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+
+body.paris-page {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('paris-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body.paris-page .logo {
+    color: #ffffff;
+}
+
+body.paris-page .place-label {
+    color: #ffffff;
+}
+
+body.paris-page .city-link {
+    color: #ffffff;
+}
+
+body.paris-page .city-link.active {
+    color: #b3b3b3;
+}
+
+body.paris-page .content-section h1 {
+    color: #ffffff;
+}
+
+body.paris-page .content-section p {
+    color: #e6e6e6;
+}

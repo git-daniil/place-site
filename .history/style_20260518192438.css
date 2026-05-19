@@ -1,0 +1,70 @@
+/* Общие настройки для демонстрации */
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding-top: 100px; /* Отступ, чтобы панель не перекрывала контент */
+}
+
+/* Контейнер плавающей панели */
+.floating-nav {
+    position: fixed;
+    top: 20px; /* Отступ от верхнего края экрана */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #1a1a1a; /* Темный цвет панели */
+    padding: 6px 6px 6px 18px; /* Меньше отступ справа из-за кнопки */
+    border-radius: 30px; /* Сильное округление краев */
+    
+    width: 400px; /* Фиксированная ширина как на макете */
+    max-width: 90%; /* Адаптивность для мобильных */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Мягкая тень */
+    z-index: 1000;
+}
+
+/* Иконка / Логотип */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Контейнер для меню */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Расстояние между ссылкой и кнопкой */
+}
+
+/* Обычная ссылка (Submit) */
+.nav-link {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #ffffff; /* Осветление при наведении */
+}
+
+/* Белая кнопка (Subscribe) */
+.btn-subscribe {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 20px; /* Округление кнопки внутри панели */
+    transition: background-color 0.2s;
+}
+
+.btn-subscribe:hover {
+    background-color: #e6e6e6; /* Легкое затемнение кнопки при наведении */
+}

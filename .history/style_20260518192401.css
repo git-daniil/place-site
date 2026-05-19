@@ -1,0 +1,47 @@
+/* Сброс базовых отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Стили для самой панели */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Логотип слева, ссылки справа */
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+
+/* Стили логотипа */
+.logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стили списка ссылок */
+.nav-links {
+    list-style: none; /* Убираем точки списка */
+    display: flex;    /* Выстраиваем пункты в строку */
+}
+
+/* Отступы между ссылками */
+.nav-links li {
+    margin-left: 20px;
+}
+
+/* Стили самих ссылок */
+.nav-links a {
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 18px;
+    transition: color 0.3s; /* Плавная смена цвета */
+}
+
+/* Эффект при наведении курсора */
+.nav-links a:hover {
+    color: #ffcc00;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photopixl — Путешествия</title>
+    <style>
+        /* Подключение шрифтов (замените пути на ваши, если файлы локальные) */
+        @font-face {
+            font-family: 'Gilroy-Regular';
+            src: local('Gilroy-Regular'), url('fonts/Gilroy-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Seenonim';
+            src: local('Seenonim'), url('fonts/Seenonim.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Общие стили страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif; /* Резервный шрифт */
+        }
+
+        /* Навигационная панель */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background: none; /* Без фона */
+            padding: 20px 40px; /* Отступы от краев экрана */
+        }
+
+        /* Название сайта */
+        .logo {
+            font-family: 'Gilroy-Regular', sans-serif;
+            font-size: 64pt;
+            color: #000000;
+            line-height: 1;
+        }
+
+        /* Метка "Place:" */
+        .place-label {
+            font-family: 'Seenonim', sans-serif;
+            font-size: 36pt;
+            color: #000000;
+            margin-left: 269px; /* Отступ от логотипа */
+            line-height: 1;
+        }
+
+        /* Контейнер для кнопок городов */
+        .nav-buttons {
+            display: flex;
+            margin-left: 126px; /* Отступ от метки Place: */
+        }
+
+        /* Кнопки городов */
+        .city-btn {
+            font-family: 'Seenonim', sans-serif;
+            font-size: 36pt;
+            color: #000000;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* Отступ между кнопками */
+        .city-btn:not(:last-child) {
+            margin-right: 42px;
+        }
+
+        /* Стили для контентной зоны */
+        .content-section {
+            padding: 50px 40px;
+            font-family: sans-serif;
+        }
+
+        .city-content {
+            display: none;
+        }
+
+        .city-content.active {
+            display: block;
+        }
+
+        .city-content h2 {
+            font-size: 48px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <div class="logo">Photopixl</div>
+        <div class="place-label">Place:</div>
+        <div class="nav-buttons">
+            <button class="city-btn" onclick="showCity('paris')">Paris</button>
+            <button class="city-btn" onclick="showCity('tokio')">Tokio</button>
+            <button class="city-btn" onclick="showCity('moscow')">Moscow</button>
+            <button class="city-btn" onclick="showCity('madrid')">Madrid</button>
+        </div>
+    </nav>
+
+    <!-- Контентная зона для отображения информации о городах -->
+    <main class="content-section">
+        <div id="paris" class="city-content">
+            <h2>Paris</h2>
+            <p>Информация про Париж. Столица Франции, город искусств и моды.</p>
+        </div>
+        <div id="tokio" class="city-content">
+            <h2>Tokio</h2>
+            <p>Информация про Токио. Ультрасовременная столица Японии.</p>
+        </div>
+        <div id="moscow" class="city-content">
+            <h2>Moscow</h2>
+            <p>Информация про Москву. Столица России с богатой историей и архитектурой.</p>
+        </div>
+        <div id="madrid" class="city-content">
+            <h2>Madrid</h2>
+            <p>Информация про Мадрид. Солнечная столица Испании, центр культуры и футбола.</p>
+        </div>
+    </main>
+
+    <!-- Логика переключения городов -->
+    <script>
+        function showCity(cityId) {
+            // Скрываем весь контент
+            const contents = document.querySelectorAll('.city-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Показываем выбранный город
+            const activeContent = document.getElementById(cityId);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        }
+
+        // Показываем первый город по умолчанию при загрузке страницы
+        window.onload = function() {
+            showCity('paris');
+        };
+    </script>
+
+</body>
+</html>

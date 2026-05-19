@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX | Digital Game Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VORTEX</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Store</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="cart-icon" id="cartToggle">
+                    🛒 <span id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Боковая корзина (выезжает по клику) -->
+    <div class="sidebar-cart" id="sidebarCart">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button id="closeCart">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Сюда JS будет добавлять игры -->
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">Total: $<span id="cartTotal">0.00</span></div>
+            <button class="checkout-btn">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <!-- Главный блок с фильтрами и поиском -->
+    <main class="store-container">
+        <header class="store-header">
+            <h1>Find Your Next Adventure</h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search games by title...">
+            </div>
+        </header>
+
+        <!-- Категории / Теги -->
+        <div class="tags-container">
+            <button class="tag-btn active" data-filter="all">All Games</button>
+            <button class="tag-btn" data-filter="action">Action</button>
+            <button class="tag-btn" data-filter="rpg">RPG</button>
+            <button class="tag-btn" data-filter="sci-fi">Sci-Fi</button>
+            <button class="tag-btn" data-filter="horror">Horror</button>
+        </div>
+
+        <!-- Сетка игр -->
+        <section class="games-grid" id="gamesGrid">
+            <!-- Карточки генерируются динамически через JS -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
