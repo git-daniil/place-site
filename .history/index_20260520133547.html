@@ -67,7 +67,7 @@
         <section class="paris-bg-6 scroll-section">
             <main class="content-section anim-text">
                 <h1>Эйфелева башня</h1>
-                <p>Главный и самый узнаваемый символ не только Парижа, но и всей Франции. Её изящный силуэт восхищает в любое время суток, а evening иллюминация создает ощущение настоящей сказки.</p>
+                <p>Главный и самый узнаваемый символ не только Парижа, но и всей Франции. Её изящный силуэт восхищает в любое время суток, а вечерняя иллюминация создает ощущение настоящей сказки.</p>
             </main>
         </section>
 
@@ -86,16 +86,6 @@
     </div>
 
     <script {nonce}>
-        window.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                document.querySelector('.preloader-logo').classList.add('show');
-            }, 300);
-
-            setTimeout(() => {
-                document.querySelector('.preloader-author').classList.add('show');
-            }, 900);
-        });
-
         window.addEventListener('load', function() {
             const progressBar = document.querySelector('.progress-bar');
             const pageWrapper = document.querySelector('.page-wrapper');
@@ -109,8 +99,8 @@
                 
                 setTimeout(() => {
                     progressContainer.style.display = 'none';
-                }, 600);
-            }, 2200);
+                }, 400);
+            }, 600);
         });
 
         let currentSection = 0;
