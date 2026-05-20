@@ -175,7 +175,7 @@ body.paris-page .city-link.active {
 .lang-selector-capsule {
     margin-left: auto;
     position: relative;
-    width: 48px;
+    width: 48px; /* Уменьшили общую ширину контейнера */
     height: 30px;
     z-index: 20;
 }

@@ -175,8 +175,8 @@ body.paris-page .city-link.active {
 .lang-selector-capsule {
     margin-left: auto;
     position: relative;
-    width: 48px;
-    height: 30px;
+    width: 48px; /* Уменьшили общую ширину контейнера */
+    height: 30px; /* Уменьшили общую высоту контейнера */
     z-index: 20;
 }
 
@@ -185,10 +185,10 @@ body.paris-page .city-link.active {
     top: 0;
     right: 0;
     width: 100%;
-    height: 30px;
+    height: 30px; /* Сжали высоту капсулы в закрытом состоянии */
     background-color: rgba(12, 12, 12, 0.75);
     border: 1px solid rgba(72, 72, 72, 0.15);
-    border-radius: 15px;
+    border-radius: 15px; /* Скорректировали скругление под новую высоту */
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photopixl — Paris</title>
     <link rel="stylesheet" href="style.css">
-    <script src="translations_paris.js"></script>
+    <script src="translations.js"></script>
 </head>
 <body class="paris-page">
 
@@ -30,8 +30,9 @@
                 <a href="madrid.html" class="city-link" data-lang="madrid">Мадрид</a>
             </div>
             
-            <div class="lang-selector-capsule">
-                <div class="lang-options-wrapper">
+            <div class="lang-selector">
+                <div class="lang-current">RU</div>
+                <div class="lang-dropdown">
                     <div class="lang-option active" data-value="ru">RU</div>
                     <div class="lang-option" data-value="en">EN</div>
                 </div>
@@ -71,7 +72,7 @@
 
         <section class="paris-bg-5 scroll-section" data-slide="4">
             <main class="content-section anim-text">
-                <h1 data-field="h1">Триумфальная арка</h1>
+                <h1>Триумфальная арка</h1>
                 <p data-field="p">Величественный монумент на площади Шарля де Голля, ставший символом побед и национальной гордости Франции. Отсюда откроется один из лучших видов на Елисейские поля.</p>
             </main>
         </section>
@@ -105,59 +106,39 @@
         const preloaderLogo = document.querySelector('.preloader-logo');
         const preloaderAuthor = document.querySelector('.preloader-author');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.3 });
-
         function runPreloader(showText = true, callback = null) {
             progressContainer.style.display = 'flex';
             progressBar.style.transition = 'none';
             progressBar.style.width = '0%';
             
             setTimeout(() => {
+                progressContainer.style.opacity = '1';
+                pageWrapper.classList.remove('loaded');
+                
                 if (showText) {
-                    progressContainer.classList.remove('lang-switch-mode');
-                    progressContainer.style.opacity = '1';
-                    pageWrapper.classList.remove('loaded');
                     preloaderCenterText.style.display = 'block';
                     preloaderLogo.classList.remove('show');
                     preloaderAuthor.classList.remove('show');
                     setTimeout(() => { preloaderLogo.classList.add('show'); }, 300);
                     setTimeout(() => { preloaderAuthor.classList.add('show'); }, 900);
                 } else {
-                    progressContainer.classList.add('lang-switch-mode');
-                    progressContainer.style.opacity = '1';
                     preloaderCenterText.style.display = 'none';
                 }
 
                 setTimeout(() => {
-                    progressBar.style.transition = 'width 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
+                    progressBar.style.transition = 'width 2s cubic-bezier(0.22, 1, 0.36, 1)';
                     progressBar.style.width = '100%';
                 }, 50);
 
                 setTimeout(() => {
                     if (callback) callback();
                     progressContainer.style.opacity = '0';
-                    
-                    if (showText) {
-                        pageWrapper.classList.add('loaded');
-                    }
+                    pageWrapper.classList.add('loaded');
                     
                     setTimeout(() => {
                         progressContainer.style.display = 'none';
-                        progressContainer.classList.remove('lang-switch-mode');
-                        
-                        document.querySelectorAll('.anim-text').forEach(text => {
-                            observer.observe(text);
-                        });
-                    }, 400);
-                }, 1300);
+                    }, 600);
+                }, 2200);
             }, 50);
         }
 
@@ -165,40 +146,35 @@
             runPreloader(true);
         });
 
-        const langSelector = document.querySelector('.lang-selector-capsule');
+        const langSelector = document.querySelector('.lang-selector');
+        const langCurrent = document.querySelector('.lang-current');
         const langOptions = document.querySelectorAll('.lang-option');
+
+        if (langSelector) {
+            langSelector.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('open');
+            });
+        }
+        
+        document.addEventListener('click', function() {
+            if (langSelector) langSelector.classList.remove('open');
+        });
 
         langOptions.forEach(option => {
             option.addEventListener('click', function(e) {
                 e.stopPropagation();
-                
-                const isOpen = langSelector.classList.contains('open');
-                const isActive = this.classList.contains('active');
-
-                if (!isOpen) {
-                    langSelector.classList.add('open');
-                    return;
-                }
-
-                if (isActive) {
-                    langSelector.classList.remove('open');
-                    return;
-                }
-                
                 const lang = this.getAttribute('data-value');
                 
                 langOptions.forEach(opt => opt.classList.remove('active'));
                 this.classList.add('active');
+                langCurrent.textContent = lang.toUpperCase();
                 langSelector.classList.remove('open');
                 
                 runPreloader(false, () => {
                     changeLanguage(lang);
                 });
             });
-        });
-        
-        document.addEventListener('click', function() {
-            if (langSelector) langSelector.classList.remove('open');
         });
 
         function changeLanguage(lang) {
@@ -259,6 +235,20 @@
                 isScrolling = false;
             }, 1000);
         }, { passive: false });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.anim-text').forEach(text => {
+            observer.observe(text);
+        });
     </script>
 
 </body>

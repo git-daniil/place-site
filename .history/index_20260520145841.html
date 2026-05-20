@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photopixl — Paris</title>
     <link rel="stylesheet" href="style.css">
-    <script src="translations_paris.js"></script>
+    <script src="translations.js"></script>
 </head>
 <body class="paris-page">
 
@@ -31,10 +31,8 @@
             </div>
             
             <div class="lang-selector-capsule">
-                <div class="lang-options-wrapper">
-                    <div class="lang-option active" data-value="ru">RU</div>
-                    <div class="lang-option" data-value="en">EN</div>
-                </div>
+                <div class="lang-option active" data-value="ru">RU</div>
+                <div class="lang-option" data-value="en">EN</div>
             </div>
         </nav>
 
@@ -168,23 +166,22 @@
         const langSelector = document.querySelector('.lang-selector-capsule');
         const langOptions = document.querySelectorAll('.lang-option');
 
+        if (langSelector) {
+            langSelector.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('open');
+            });
+        }
+        
+        document.addEventListener('click', function() {
+            if (langSelector) langSelector.classList.remove('open');
+        });
+
         langOptions.forEach(option => {
             option.addEventListener('click', function(e) {
+                if (!langSelector.classList.contains('open')) return;
+                
                 e.stopPropagation();
-                
-                const isOpen = langSelector.classList.contains('open');
-                const isActive = this.classList.contains('active');
-
-                if (!isOpen) {
-                    langSelector.classList.add('open');
-                    return;
-                }
-
-                if (isActive) {
-                    langSelector.classList.remove('open');
-                    return;
-                }
-                
                 const lang = this.getAttribute('data-value');
                 
                 langOptions.forEach(opt => opt.classList.remove('active'));
@@ -195,10 +192,6 @@
                     changeLanguage(lang);
                 });
             });
-        });
-        
-        document.addEventListener('click', function() {
-            if (langSelector) langSelector.classList.remove('open');
         });
 
         function changeLanguage(lang) {

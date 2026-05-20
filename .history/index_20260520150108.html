@@ -31,10 +31,8 @@
             </div>
             
             <div class="lang-selector-capsule">
-                <div class="lang-options-wrapper">
-                    <div class="lang-option active" data-value="ru">RU</div>
-                    <div class="lang-option" data-value="en">EN</div>
-                </div>
+                <div class="lang-option active" data-value="ru">RU</div>
+                <div class="lang-option" data-value="en">EN</div>
             </div>
         </nav>
 
@@ -168,19 +166,24 @@
         const langSelector = document.querySelector('.lang-selector-capsule');
         const langOptions = document.querySelectorAll('.lang-option');
 
+        if (langSelector) {
+            langSelector.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('open');
+            });
+        }
+        
+        document.addEventListener('click', function() {
+            if (langSelector) langSelector.classList.remove('open');
+        });
+
         langOptions.forEach(option => {
             option.addEventListener('click', function(e) {
                 e.stopPropagation();
                 
-                const isOpen = langSelector.classList.contains('open');
-                const isActive = this.classList.contains('active');
+                if (!langSelector.classList.contains('open')) return;
 
-                if (!isOpen) {
-                    langSelector.classList.add('open');
-                    return;
-                }
-
-                if (isActive) {
+                if (this.classList.contains('active')) {
                     langSelector.classList.remove('open');
                     return;
                 }
@@ -195,10 +198,6 @@
                     changeLanguage(lang);
                 });
             });
-        });
-        
-        document.addEventListener('click', function() {
-            if (langSelector) langSelector.classList.remove('open');
         });
 
         function changeLanguage(lang) {
