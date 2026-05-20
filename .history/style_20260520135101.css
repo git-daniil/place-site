@@ -171,19 +171,12 @@ body.paris-page .city-link.active {
     font-size: 16pt;
     color: #000000;
     line-height: 1;
+    margin-left: auto;
 }
 
 body.paris-page .author-label {
-    position: fixed;
-    bottom: 20px;
-    right: 40px;
     color: #ffffff;
     opacity: 0.8;
-    z-index: 10;
-}
-
-body.paris-page .page-wrapper:not(.loaded) ~ .author-label {
-    opacity: 0;
 }
 
 .content-section {
@@ -255,6 +248,7 @@ body.paris-page .content-section p {
 }
 
 .thanks-section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -264,6 +258,15 @@ body.paris-page .content-section p {
 .thanks-text {
     font-family: 'Gilroy-Regular', sans-serif;
     font-size: 48pt;
+    color: #ffffff;
+    text-align: center;
+}
+
+.made-with-love {
+    position: absolute;
+    bottom: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 13pt; /* Размер увеличен до 13pt */
     color: #ffffff;
     text-align: center;
 }
@@ -280,7 +283,7 @@ body.paris-page .content-section p {
     transform: translateY(0);
 }
 
-::selection {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+/* Ограничиваем прозрачность подписи на уровне 0.7 после проявления анимации */
+.made-with-love.visible {
+    opacity: 0.7; 
 }

@@ -171,19 +171,12 @@ body.paris-page .city-link.active {
     font-size: 16pt;
     color: #000000;
     line-height: 1;
+    margin-left: auto;
 }
 
 body.paris-page .author-label {
-    position: fixed;
-    bottom: 20px;
-    right: 40px;
     color: #ffffff;
     opacity: 0.8;
-    z-index: 10;
-}
-
-body.paris-page .page-wrapper:not(.loaded) ~ .author-label {
-    opacity: 0;
 }
 
 .content-section {
@@ -255,6 +248,7 @@ body.paris-page .content-section p {
 }
 
 .thanks-section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -268,6 +262,16 @@ body.paris-page .content-section p {
     text-align: center;
 }
 
+.made-with-love {
+    position: absolute;
+    bottom: 20px; /* Отступ от низа уменьшен до 20px */
+    font-family: Arial, sans-serif; /* Изменен на стандартный Arial */
+    font-size: 11pt; /* Размер уменьшен до 11pt */
+    color: #ffffff;
+    opacity: 0.7; /* Прозрачность 0.7 зафиксирована */
+    text-align: center;
+}
+
 .anim-text {
     opacity: 0;
     transform: translateY(40px);
@@ -278,9 +282,4 @@ body.paris-page .content-section p {
 .anim-text.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-::selection {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
 }
