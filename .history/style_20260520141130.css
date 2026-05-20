@@ -182,7 +182,24 @@ body.paris-page .author-label {
     z-index: 10;
 }
 
-body.paris-page .page-wrapper:not(.loaded) ~ .author-label {
+.slide-counter {
+    display: none;
+}
+
+body.paris-page .slide-counter {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 40px;
+    font-family: 'Seenonim', sans-serif;
+    font-size: 16pt;
+    color: #ffffff;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+body.paris-page .page-wrapper:not(.loaded) ~ .author-label,
+body.paris-page .page-wrapper:not(.loaded) ~ .slide-counter {
     opacity: 0;
 }
 

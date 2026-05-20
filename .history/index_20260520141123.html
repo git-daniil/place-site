@@ -16,6 +16,7 @@
         </div>
     </div>
 
+    <div class="slide-counter">1/8</div>
     <div class="author-label">by Daniil Fokin</div>
 
     <div class="page-wrapper">
@@ -142,6 +143,11 @@
             }
 
             sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+
+            const counter = document.querySelector('.slide-counter');
+            if (counter) {
+                counter.textContent = `${currentSection + 1}/${sections.length}`;
+            }
 
             const scrollHint = document.querySelector('.scroll-hint');
             if (scrollHint && currentSection > 0) {
