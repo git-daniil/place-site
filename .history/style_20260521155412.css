@@ -401,16 +401,16 @@ body.paris-page .content-section p {
 
 .next-city-link {
     position: absolute;
-    bottom: 25px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Seenonim', sans-serif;
-    font-size: 23pt;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 22pt;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     transition: all 0.4s ease;
     z-index: 5;
     opacity: 0;
@@ -418,17 +418,9 @@ body.paris-page .content-section p {
 
 .next-city-link:hover {
     color: #ffffff;
-    gap: 15px;
+    gap: 20px;
 }
 
 .thanks-section .next-city-link {
     opacity: 1;
-}
-
-.next-city-link .arrow-right {
-    font-size: 28pt;
-    line-height: 1;
-    position: relative;
-    top: 1px;
-    font-weight: normal;
 }

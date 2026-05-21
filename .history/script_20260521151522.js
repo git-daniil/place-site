@@ -4,6 +4,7 @@ const progressContainer = document.querySelector('.progress-bar-container');
 const preloaderCenterText = document.querySelector('.preloader-center-text');
 const preloaderLogo = document.querySelector('.preloader-logo');
 const preloaderAuthor = document.querySelector('.preloader-author');
+const scrollHint = document.querySelector('.scroll-hint');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -28,8 +29,8 @@ function runPreloader(showText = true, callback = null) {
             preloaderCenterText.style.display = 'block';
             preloaderLogo.classList.remove('show');
             preloaderAuthor.classList.remove('show');
-            setTimeout(() => { preloaderLogo.classList.add('show'); }, 300);
-            setTimeout(() => { preloaderAuthor.classList.add('show'); }, 900);
+            setTimeout(() => preloaderLogo.classList.add('show'), 300);
+            setTimeout(() => preloaderAuthor.classList.add('show'), 900);
         } else {
             progressContainer.classList.add('lang-switch-mode');
             progressContainer.style.opacity = '1';
@@ -45,42 +46,19 @@ function runPreloader(showText = true, callback = null) {
             if (callback) callback();
             progressContainer.style.opacity = '0';
             
-            if (showText) {
-                pageWrapper.classList.add('loaded');
-            }
+            if (showText) pageWrapper.classList.add('loaded');
             
             setTimeout(() => {
                 progressContainer.style.display = 'none';
                 progressContainer.classList.remove('lang-switch-mode');
-                
-                document.querySelectorAll('.anim-text').forEach(text => {
-                    observer.observe(text);
-                });
+                document.querySelectorAll('.anim-text').forEach(text => observer.observe(text));
             }, 400);
         }, 1300);
     }, 50);
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', () => {
     runPreloader(true);
-});
-
-let scrollHintTimeout;
-
-function showScrollHintWithDelay() {
-    const scrollHint = document.querySelector('.scroll-hint');
-    if (!scrollHint) return;
-    
-    clearTimeout(scrollHintTimeout);
-    scrollHint.style.opacity = '0';
-    
-    scrollHintTimeout = setTimeout(() => {
-        scrollHint.style.opacity = '1';
-    }, 4000);
-}
-
-window.addEventListener('load', function() {
-    showScrollHintWithDelay();
 });
 
 const langSelector = document.querySelector('.lang-selector-capsule');
@@ -89,7 +67,6 @@ const langOptions = document.querySelectorAll('.lang-option');
 langOptions.forEach(option => {
     option.addEventListener('click', function(e) {
         e.stopPropagation();
-        
         const isOpen = langSelector.classList.contains('open');
         const isActive = this.classList.contains('active');
 
@@ -97,25 +74,21 @@ langOptions.forEach(option => {
             langSelector.classList.add('open');
             return;
         }
-
         if (isActive) {
             langSelector.classList.remove('open');
             return;
         }
         
         const lang = this.getAttribute('data-value');
-        
         langOptions.forEach(opt => opt.classList.remove('active'));
         this.classList.add('active');
         langSelector.classList.remove('open');
         
-        runPreloader(false, () => {
-            changeLanguage(lang);
-        });
+        runPreloader(false, () => changeLanguage(lang));
     });
 });
 
-document.addEventListener('click', function() {
+document.addEventListener('click', () => {
     if (langSelector) langSelector.classList.remove('open');
 });
 
@@ -127,10 +100,9 @@ function changeLanguage(lang) {
         }
     });
 
-    document.querySelectorAll('[data-slide]').forEach(slide => {
+    document.querySelectorAll('.scroll-section[data-slide]').forEach(slide => {
         const slideIndex = slide.getAttribute('data-slide');
         const slideData = translations[lang]?.slides?.[slideIndex];
-        
         if (slideData) {
             const h1 = slide.querySelector('[data-field="h1"]');
             const p = slide.querySelector('[data-field="p"]');
@@ -144,17 +116,28 @@ let currentSection = 0;
 const sections = document.querySelectorAll('.scroll-section');
 let isScrolling = false;
 
+function updateScrollHint() {
+    if (!scrollHint) return;
+    if (currentSection === 0) {
+        scrollHint.classList.remove('hide');
+        scrollHint.classList.remove('show');
+        void scrollHint.offsetWidth;
+        scrollHint.classList.add('show');
+    } else {
+        scrollHint.classList.add('hide');
+        scrollHint.classList.remove('show');
+    }
+}
+
 window.addEventListener('wheel', function(e) {
     if (!document.body.classList.contains('paris-page')) return;
-    if (!document.querySelector('.page-wrapper').classList.contains('loaded')) {
+    if (!pageWrapper.classList.contains('loaded')) {
         e.preventDefault();
         return;
     }
 
     e.preventDefault();
-    
-    if (isScrolling) return;
-    if (Math.abs(e.deltaY) < 60) return;
+    if (isScrolling || Math.abs(e.deltaY) < 60) return;
 
     isScrolling = true;
 
@@ -165,20 +148,7 @@ window.addEventListener('wheel', function(e) {
     }
 
     sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    updateScrollHint();
 
-    const scrollHint = document.querySelector('.scroll-hint');
-    
-    if (scrollHint) {
-        if (currentSection > 0) {
-            scrollHint.classList.add('hide');
-            scrollHint.style.opacity = '0';
-        } else {
-            scrollHint.classList.remove('hide');
-            showScrollHintWithDelay();
-        }
-    }
-
-    setTimeout(() => {
-        isScrolling = false;
-    }, 1000);
+    setTimeout(() => isScrolling = false, 1000);
 }, { passive: false });

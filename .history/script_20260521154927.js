@@ -76,7 +76,7 @@ function showScrollHintWithDelay() {
     
     scrollHintTimeout = setTimeout(() => {
         scrollHint.style.opacity = '1';
-    }, 4000);
+    }, 3000);
 }
 
 window.addEventListener('load', function() {

@@ -410,7 +410,7 @@ body.paris-page .content-section p {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     transition: all 0.4s ease;
     z-index: 5;
     opacity: 0;
@@ -418,7 +418,7 @@ body.paris-page .content-section p {
 
 .next-city-link:hover {
     color: #ffffff;
-    gap: 15px;
+    gap: 25px;
 }
 
 .thanks-section .next-city-link {

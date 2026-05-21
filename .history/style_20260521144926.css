@@ -352,8 +352,7 @@ body.paris-page .content-section p {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.5s ease;
     pointer-events: none;
 }
 
@@ -397,38 +396,4 @@ body.paris-page .content-section p {
 ::selection {
     background-color: rgba(28, 28, 28, 1);
     color: #ffffff;
-}
-
-.next-city-link {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Seenonim', sans-serif;
-    font-size: 23pt;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.4s ease;
-    z-index: 5;
-    opacity: 0;
-}
-
-.next-city-link:hover {
-    color: #ffffff;
-    gap: 15px;
-}
-
-.thanks-section .next-city-link {
-    opacity: 1;
-}
-
-.next-city-link .arrow-right {
-    font-size: 28pt;
-    line-height: 1;
-    position: relative;
-    top: 1px;
-    font-weight: normal;
 }

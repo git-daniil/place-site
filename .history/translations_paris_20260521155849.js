@@ -47,7 +47,6 @@ const translations = {
         tokio: "Tokyo",
         moscow: "Moscow",
         madrid: "Madrid",
-        nextTokio: "Tokyo",
         slides: [
             {
                 h1: "Paris",

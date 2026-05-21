@@ -5,7 +5,6 @@ const translations = {
         tokio: "Токио",
         moscow: "Москва",
         madrid: "Мадрид",
-        nextTokio: "Токио",
         slides: [
             {
                 h1: "Париж",
@@ -47,7 +46,6 @@ const translations = {
         tokio: "Tokyo",
         moscow: "Moscow",
         madrid: "Madrid",
-        nextTokio: "Tokyo",
         slides: [
             {
                 h1: "Paris",

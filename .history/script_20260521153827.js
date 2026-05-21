@@ -65,24 +65,6 @@ window.addEventListener('DOMContentLoaded', function() {
     runPreloader(true);
 });
 
-let scrollHintTimeout;
-
-function showScrollHintWithDelay() {
-    const scrollHint = document.querySelector('.scroll-hint');
-    if (!scrollHint) return;
-    
-    clearTimeout(scrollHintTimeout);
-    scrollHint.style.opacity = '0';
-    
-    scrollHintTimeout = setTimeout(() => {
-        scrollHint.style.opacity = '1';
-    }, 4000);
-}
-
-window.addEventListener('load', function() {
-    showScrollHintWithDelay();
-});
-
 const langSelector = document.querySelector('.lang-selector-capsule');
 const langOptions = document.querySelectorAll('.lang-option');
 
@@ -167,15 +149,10 @@ window.addEventListener('wheel', function(e) {
     sections[currentSection].scrollIntoView({ behavior: 'smooth' });
 
     const scrollHint = document.querySelector('.scroll-hint');
-    
-    if (scrollHint) {
-        if (currentSection > 0) {
-            scrollHint.classList.add('hide');
-            scrollHint.style.opacity = '0';
-        } else {
-            scrollHint.classList.remove('hide');
-            showScrollHintWithDelay();
-        }
+    if (scrollHint && currentSection > 0) {
+        scrollHint.classList.add('hide');
+    } else if (scrollHint && currentSection === 0) {
+        scrollHint.classList.remove('hide');
     }
 
     setTimeout(() => {
