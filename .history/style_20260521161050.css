@@ -18,6 +18,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Универсальный класс для всех городов */
 body.city-page {
     height: 100vh;
     overflow: hidden;

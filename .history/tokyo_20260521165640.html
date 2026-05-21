@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photopixl — Tokyo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="city-page tokio-page">
+
+    <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+        <div class="preloader-center-text">
+            <div class="preloader-logo">Gallery</div>
+            <div class="preloader-author">by Daniil Fokin</div>
+        </div>
+    </div>
+
+    <div class="author-label">by Daniil Fokin</div>
+
+    <div class="page-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Gallery</a>
+            <div class="place-label" data-lang="place">Место:</div>
+            <div class="nav-links">
+                <a href="index.html" class="city-link" data-lang="paris">Париж</a>
+                <a href="tokyo.html" class="city-link active" data-lang="tokio">Токио</a>
+                <a href="moscow.html" class="city-link" data-lang="moscow">Москва</a>
+                <a href="madrid.html" class="city-link" data-lang="madrid">Мадрид</a>
+            </div>
+            
+            <div class="lang-selector-capsule">
+                <div class="lang-options-wrapper">
+                    <div class="lang-option active" data-value="ru">RU</div>
+                    <div class="lang-option" data-value="en">EN</div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="scroll-section" data-slide="0" style="--bg-image: url('assets/photo/tokyo/tokyo1.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Токио</h1>
+                <p data-field="p">Добро пожаловать в Токио — самый населённый мегаполис мира, где древние традиции гармонично сосуществуют с футуристическими технологиями.</p>
+            </main>
+            <div class="scroll-hint">
+                <div class="arrow"></div>
+            </div>
+        </section>
+
+        <section class="scroll-section" data-slide="1" style="--bg-image: url('assets/photo/tokyo/tokyo2.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Перекрёсток Сибуя</h1>
+                <p data-field="p">Самый знаменитый пешеходный переход в мире. Здесь одновременно переходят улицу тысячи людей, создавая невероятную энергию современного Токио.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section" data-slide="2" style="--bg-image: url('assets/photo/tokyo/tokyo3.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Токийская башня и небоскрёбы</h1>
+                <p data-field="p">Изящная Токийская башня и огромные небоскрёбы Шиндзюку создают потрясающий контраст между классикой и современностью.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section" data-slide="3" style="--bg-image: url('assets/photo/tokyo/tokyo4.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Храм Сенсо-дзи</h1>
+                <p data-field="p">Древнейший буддийский храм Токио в районе Асакуса. Здесь можно прикоснуться к традиционной Японии среди шумного мегаполиса.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section" data-slide="4" style="--bg-image: url('assets/photo/tokyo/tokyo5.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Акихабара — столица отаку</h1>
+                <p data-field="p">Район, где неон, аниме, манга и электроника создают неповторимую атмосферу. Мекка для всех любителей японской поп-культуры.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section" data-slide="5" style="--bg-image: url('assets/photo/tokyo/tokyo5.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Токийское небо</h1>
+                <p data-field="p">Вид с небоскрёбов или Tokyo Skytree открывает захватывающую панораму бесконечного города, который никогда не спит.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section" data-slide="6" style="--bg-image: url('assets/photo/tokyo/tokyo6.webp');">
+            <main class="content-section anim-text">
+                <h1 data-field="h1">Сакура и традиции</h1>
+                <p data-field="p">Весной Токио превращается в розово-белое море цветущей сакуры. Это время, когда жители и туристы наслаждаются ханами — любование цветами.</p>
+            </main>
+        </section>
+
+        <section class="scroll-section thanks-section" data-slide="7" style="--bg-image: url('assets/photo/tokyo/tokyo7.webp');">
+            <div class="thanks-text anim-text" data-field="h1">
+                さようなら、Tokyo
+            </div>
+            <a href="moscow.html" class="next-city-link">
+                <span data-lang="nextMoscow">Москва</span>
+                <span class="arrow-right">→</span>
+            </a>
+        </section>
+    </div>
+
+    <script src="translations_tokyo.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
